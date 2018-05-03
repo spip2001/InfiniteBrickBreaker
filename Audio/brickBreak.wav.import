@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/brickBreak.wav-9a35420e80d0d9656474034cfab916b8.sample"
+
+[deps]
+
+source_file="res://Audio/brickBreak.wav"
+source_md5="6448211297d8289f6081087ea302351c"
+
+dest_files=[ "res://.import/brickBreak.wav-9a35420e80d0d9656474034cfab916b8.sample" ]
+dest_md5="6e3ffb8792b1e3e7c4ef0ad98215938d"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

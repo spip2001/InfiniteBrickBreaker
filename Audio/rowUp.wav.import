@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/rowUp.wav-4a35d7e5087ed10465fbcf55335fde97.sample"
+
+[deps]
+
+source_file="res://Audio/rowUp.wav"
+source_md5="100e984fa0349bd250277a3510fc08fa"
+
+dest_files=[ "res://.import/rowUp.wav-4a35d7e5087ed10465fbcf55335fde97.sample" ]
+dest_md5="299c7106105a5df4b0edfd5ed44ac262"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

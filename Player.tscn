@@ -1,0 +1,192 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://particle.png" type="Texture" id=2]
+[ext_resource path="res://Sprites.png" type="Texture" id=3]
+[ext_resource path="res://Audio/boing.wav" type="AudioStream" id=4]
+[ext_resource path="res://State.gd" type="Script" id=5]
+[ext_resource path="res://Basic.gd" type="Script" id=6]
+[ext_resource path="res://Expanded.gd" type="Script" id=7]
+[ext_resource path="res://Audio/expand.wav" type="AudioStream" id=8]
+[ext_resource path="res://Retracted.gd" type="Script" id=9]
+[ext_resource path="res://Audio/retract.wav" type="AudioStream" id=10]
+[ext_resource path="res://MachineGun.gd" type="Script" id=11]
+[ext_resource path="res://Audio/shoot.wav" type="AudioStream" id=12]
+
+[sub_resource type="ParticlesMaterial" id=1]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 15.0
+angle_random = 1.0
+scale = 1.0
+scale_random = 1.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Angular Velocity", "Gravity", "Initial Velocity", "Scale", "Spread" ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 32 )
+
+[node name="Player" type="KinematicBody2D"]
+
+position = Vector2( 192, 256 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+maxSpeed = 250
+acceleration = 1000
+friction = 0.9
+
+[node name="Particles2D" type="Particles2D" parent="." index="0"]
+
+scale = Vector2( 0.5, 0.5 )
+emitting = true
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 2.0
+explosiveness = 0.0
+randomness = 0.13
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 1 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 32 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+
+rotation = 1.5708
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="3"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="State" type="Node" parent="." index="4"]
+
+script = ExtResource( 5 )
+
+[node name="Basic" type="Node" parent="." index="5"]
+
+script = ExtResource( 6 )
+
+[node name="Expanded" type="Node" parent="." index="6"]
+
+editor/display_folded = true
+script = ExtResource( 7 )
+
+[node name="ExpandAudioPlayer" type="AudioStreamPlayer2D" parent="Expanded" index="0"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Retracted" type="Node" parent="." index="7"]
+
+editor/display_folded = true
+script = ExtResource( 9 )
+
+[node name="RetractAudioPlayer" type="AudioStreamPlayer2D" parent="Retracted" index="0"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="MachineGun" type="Node" parent="." index="8"]
+
+editor/display_folded = true
+script = ExtResource( 11 )
+
+[node name="MachineGunTimer" type="Timer" parent="MachineGun" index="0"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = false
+
+[node name="ShootAudioPlayer" type="AudioStreamPlayer2D" parent="MachineGun" index="1"]
+
+stream = ExtResource( 12 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="StartTimer" type="Timer" parent="." index="9"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="MachineGun/MachineGunTimer" to="MachineGun" method="_on_MachineGunTimer_timeout"]
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
+
+

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/retract.wav-9de9d649fcb57e154662c2e5845eaa3e.sample"
+
+[deps]
+
+source_file="res://Audio/retract.wav"
+source_md5="9099ddfedbc18293966745d07b2e328d"
+
+dest_files=[ "res://.import/retract.wav-9de9d649fcb57e154662c2e5845eaa3e.sample" ]
+dest_md5="beab6e51cd6fa787588e3b01ef238ae3"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

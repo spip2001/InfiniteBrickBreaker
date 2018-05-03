@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Bonus.gd" type="Script" id=1]
+[ext_resource path="res://Sprites.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 8 )
+
+[node name="Bonus" type="Area2D" groups=[
+"Bonus",
+]]
+
+position = Vector2( 208, 160 )
+input_pickable = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Material" ]
+
+[node name="Sprite_0" type="Sprite" parent="." index="0"]
+
+visible = false
+use_parent_material = true
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 96, 32, 16 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Sprite_1" type="Sprite" parent="." index="1"]
+
+visible = false
+use_parent_material = true
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 112, 32, 16 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Sprite_2" type="Sprite" parent="." index="2"]
+
+visible = false
+use_parent_material = true
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 32, 96, 32, 16 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Sprite_3" type="Sprite" parent="." index="3"]
+
+visible = false
+use_parent_material = true
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 32, 112, 32, 16 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
+
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="5"]
+
+rect = Rect2( -10, -10, 20, 20 )
+
+

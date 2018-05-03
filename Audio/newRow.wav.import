@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/newRow.wav-356f76286900f267d62da9c973fd0788.sample"
+
+[deps]
+
+source_file="res://Audio/newRow.wav"
+source_md5="2d05f08a4255b8bf24cb681815362ac7"
+
+dest_files=[ "res://.import/newRow.wav-356f76286900f267d62da9c973fd0788.sample" ]
+dest_md5="a99be03439c9f9b7f142b9fa7ed6afaa"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
